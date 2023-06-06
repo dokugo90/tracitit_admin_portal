@@ -36,7 +36,7 @@ export default function Home() {
 
       if (typeof window !== 'undefined') {
         token = localStorage.getItem('Trackit_admin[3343]-token');
-      }
+      };
 
       const getUsers = axios.get(`${process.env.NEXT_PUBLIC_API}users`, {
         headers: { Authorization: `Bearer ${token}` },
