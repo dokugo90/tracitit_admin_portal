@@ -30,7 +30,7 @@ function HomePage() {
       <div className='p-8 flex gap-2'>
         {
           allUsers.map((user: any, index: any) => (
-            <div className='w-full border-4 rounded-xl border-primary p-4'>
+            <div key={index} className='w-full border-4 rounded-xl border-primary p-4'>
               <div className='flex w-full items-center gap-2'>
                 <img src={user.pfp} className='w-[55px] h-[55px] bg-red-500 rounded-full object-cover' />
                 <p>{user.firstName}</p>

@@ -37,7 +37,7 @@ export default function MessageScreen() {
                 <div className="p-4">
                 {
                     messages.map((message, index) => (
-                        <div className="w-full">
+                        <div key={index} className="w-full">
                             <div className="flex p-4 w-full items-center gap-2">
                                 <img src={message.userPhoto} className="w-[40px] h-[40px] bg-red rounded-full object-cover" />
                                 <p>{message.message}</p>
