@@ -1,7 +1,8 @@
 "use client"
 import React, { useState } from 'react'
 import Dashboard from '../components/dashboard'
-import useAppContext from '../utils/contexts'
+import useAppContext from '../context/store';
+import Link from 'next/link';
 
 function HomePage() {
   const { allUsers, setAllUsers } = useAppContext();
@@ -27,16 +28,17 @@ function HomePage() {
   />
 </label>
       </div>
-      <div className='p-8 flex gap-2'>
+      <div className='flex gap-2 flex-wrap justify-center'>
         {
           allUsers.map((user: any, index: any) => (
-            <div key={index} className='w-full border-4 rounded-xl border-primary p-4'>
-              <div className='flex w-full items-center gap-2'>
-                <img src={user.pfp} className='w-[55px] h-[55px] bg-red-500 rounded-full object-cover' />
-                <p>{user.firstName}</p>
-              </div>
-
-            </div>
+            <Link className='w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 border-4 rounded-xl border-primary p-4' href="/user/[userId]" as={`/user/${user._id}`} key={index}>
+            
+        <div className='flex w-full items-center gap-2'>
+          <img src={user.pfp} className='w-[55px] h-[55px] bg-red-500 rounded-full object-cover' />
+          <p>{user.firstName}</p>
+        </div>
+      
+            </Link>
           ))
         }
       </div>

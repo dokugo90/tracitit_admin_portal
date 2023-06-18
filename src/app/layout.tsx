@@ -1,6 +1,7 @@
 import './globals.css'
 import { Inter } from 'next/font/google';
 import Dashboard from '@/app/components/dashboard';
+import { AppContextProvider } from './context/store';
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -20,7 +21,9 @@ export default function RootLayout({
       <body className={inter.className}>
       <script src="/node_modules/material-design-lite/material.min.js" defer></script>
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"></link>
+        <AppContextProvider>
         {children}
+        </AppContextProvider>
         </body>
     </html>
   )

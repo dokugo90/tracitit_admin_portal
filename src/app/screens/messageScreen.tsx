@@ -2,8 +2,12 @@
 import { DownloadOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 import { useState } from "react";
+import DashboardMessages from "../components/dashboard_messages";
+import useAppContext from '../context/store';
 
 export default function MessageScreen() {
+
+    const { allUsers, setAllUsers } = useAppContext();
     const [messages, setMessages] = useState(
         [
             {
@@ -25,7 +29,11 @@ export default function MessageScreen() {
 
     return (
         <>
-        <main className="w-full h-full">
+        <main className="w-full h-full flex">
+            <section className="w-[24rem] flex float-left">
+                <DashboardMessages />
+            </section>
+            <section className="flex flex-col float-right w-screen h-screen">
             <section className="w-full p-4 border-b flex justify-start">
                 <div className="flex justify-center items-center gap-3">
                     <img src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" 
@@ -47,6 +55,7 @@ export default function MessageScreen() {
                 }
                 </div>
             </section>
+            
             <footer className="p-4 flex w-full fle gap-2">
                 {/*
   Heads up! 👋
@@ -75,6 +84,7 @@ export default function MessageScreen() {
 </button>
 </div>
             </footer>
+            </section>
         </main>
         </>
     )
