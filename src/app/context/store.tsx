@@ -15,6 +15,7 @@ export const AppContextProvider = ({ children }: { children: any }) => {
   const [allUsers, setAllUsers] = useState([]);
   const [currentPage, setCurrentPage] = useState("Home");
   const [currentUser, setCurrentUser] = useState({});
+  const [filteredUsers, setFilteredUsers] = useState([])
   const router = useRouter();
 
     useEffect(() => {
@@ -43,6 +44,7 @@ export const AppContextProvider = ({ children }: { children: any }) => {
           .then(([userResponse, allUsersResponse]) => {
             setUser(userResponse.data);
             setAllUsers(allUsersResponse.data);
+            setFilteredUsers([...allUsers])
            // setAuthorized(true);
           })
           .catch((error) => {
@@ -64,7 +66,9 @@ export const AppContextProvider = ({ children }: { children: any }) => {
         allUsers,
         setAllUsers,
         currentUser,
-        setCurrentUser
+        setCurrentUser,
+        filteredUsers,
+        setFilteredUsers
       }
 
       return (

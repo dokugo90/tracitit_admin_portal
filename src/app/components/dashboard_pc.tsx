@@ -1,15 +1,27 @@
-
+"use client"
 import React, { useState } from 'react'
 import { useMediaQuery } from 'react-responsive';
 import useAppContext from '../context/store';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export default function DashboardPC() {
   const { currentPage, setCurrentPage, user, setUser } = useAppContext();
   const [showDashboard, setShowDashboard] = useState(true);
+  const router = useRouter();
 
   function handleDashboard() {
     showDashboard ? setShowDashboard(false) : setShowDashboard(true);
+  }
+
+  function Logout() {
+    if (typeof window != "undefined") {
+      localStorage.removeItem("Trackit_admin[3343]-token")      
+    }
+
+    setTimeout(() => {
+      router.push("/sign_in")
+    }, 2000)
   }
 
  const focusBg = "flex cursor-pointer gap-2 items-center justify-start rounded-lg px-4 py-2 text-gray-500 bg-primary text-white"
@@ -141,9 +153,9 @@ export default function DashboardPC() {
             <span className="text-sm font-medium"> Details </span>
           </a>
 
-          <form action="/logout">
+          
             <button
-              type="submit"
+              onClick={() => Logout()}
               className="flex w-full items-center gap-2 rounded-lg px-4 py-2 text-gray-500 hover:bg-primary hover:text-white"
             >
               <svg
@@ -163,7 +175,7 @@ export default function DashboardPC() {
 
               <span className="text-sm font-medium"> Logout </span>
             </button>
-          </form>
+          
         </nav>
       </details>
 

@@ -3,7 +3,7 @@ import { useState } from "react"
 import useAppContext from '../context/store';
 
 export default function DashboardMessages() {
-  const { allUsers, setAllUsers } = useAppContext();
+  const { allUsers, setAllUsers, user, setUser } = useAppContext();
       const [messages, setMessages] = useState([
         {
           email: "test@gmail.com",
@@ -24,7 +24,7 @@ export default function DashboardMessages() {
     </span>
     <div className="w-full">
     {
-                    allUsers.map((user: any, index: any) => (
+                    user.messageList.map((user: any, index: any) => (
                     <div key={index} className="w-full hover:bg-primary hover:text-white rounded-lg cursor-pointer">
                         <div className="flex p-4 w-full items-center gap-2">
                             <img src={user.pfp} className="w-[40px] h-[40px] bg-red rounded-full object-cover" />
