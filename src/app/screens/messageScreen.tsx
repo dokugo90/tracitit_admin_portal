@@ -8,23 +8,6 @@ import useAppContext from '../context/store';
 export default function MessageScreen() {
 
     const { allUsers, setAllUsers } = useAppContext();
-    const [messages, setMessages] = useState(
-        [
-            {
-                username: "Testing",
-                userPhoto: "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
-                message: "Testing messaging!",
-                time: "6/5/2023",
-            },
-            {
-                username: "Testing",
-                userPhoto: "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
-                message: "Testing messaging!",
-                time: "6/5/2023",
-            }
-        ]
-        );
-
     
 
     return (
@@ -43,16 +26,9 @@ export default function MessageScreen() {
             </section>
             <section className="h-[74.7%] border-b">
                 <div className="p-4">
-                {
-                    messages.map((message, index) => (
-                        <div key={index} className="w-full">
-                            <div className="flex p-4 w-full items-center gap-2">
-                                <img src={message.userPhoto} className="w-[40px] h-[40px] bg-red rounded-full object-cover" />
-                                <p>{message.message}</p>
-                            </div>
-                        </div>
-                    ))
-                }
+                    {
+
+                    }
                 </div>
             </section>
             

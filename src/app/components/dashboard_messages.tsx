@@ -1,6 +1,7 @@
 "use client"
 import { useState } from "react"
 import useAppContext from '../context/store';
+import AnimationLoader from "./loader";
 
 export default function DashboardMessages() {
   const { allUsers, setAllUsers, user, setUser } = useAppContext();
@@ -24,14 +25,16 @@ export default function DashboardMessages() {
     </span>
     <div className="w-full">
     {
-                    user.messageList.map((user: any, index: any) => (
-                    <div key={index} className="w-full hover:bg-primary hover:text-white rounded-lg cursor-pointer">
-                        <div className="flex p-4 w-full items-center gap-2">
-                            <img src={user.pfp} className="w-[40px] h-[40px] bg-red rounded-full object-cover" />
-                            <p>{user.firstName}</p>
-                        </div>
-                    </div>
-                ))
+                    user.messageList == undefined ?
+                    <AnimationLoader />
+                    : user.messageList.map((user: any, index: any) => (
+                      <div key={index} className="w-full hover:bg-primary hover:text-white rounded-lg cursor-pointer">
+                          <div className="flex p-4 w-full items-center gap-2">
+                              <img src={user.pfp} className="w-[40px] h-[40px] bg-red rounded-full object-cover" />
+                              <p>{user.firstName}</p>
+                          </div>
+                      </div>
+                  ))
                 }
     </div>
         </div>
