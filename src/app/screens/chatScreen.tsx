@@ -9,6 +9,8 @@ import { chatProps } from "../interfaces/interfaces";
 import { socket } from "../../../socket"
 import axios from "axios";
 import { usePathname, useRouter } from 'next/navigation';
+import supportsColor from 'supports-color';
+
 
 export default function ChatScreen({ chatId }: chatProps) {
 
