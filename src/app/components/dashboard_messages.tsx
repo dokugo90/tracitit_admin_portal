@@ -16,6 +16,7 @@ export default function DashboardMessages() {
 
     return (
         <>
+        
        <main className="flex float-left w-full border-r ">
         <div className="bg-white w-[24rem] flex flex-col gap-5 p-4">
         <span

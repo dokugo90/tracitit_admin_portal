@@ -4,6 +4,7 @@ import { Button } from "antd";
 import { useState } from "react";
 import DashboardMessages from "../components/dashboard_messages";
 import useAppContext from '../context/store';
+import DashboardMobile from "../components/dashboard_mobile";
 
 export default function MessageScreen() {
 
@@ -13,8 +14,8 @@ export default function MessageScreen() {
     return (
         <>
         <main className="w-full h-full flex">
-            <section className="w-[24rem] flex float-left">
-                <DashboardMessages />
+            <section className="">
+                <DashboardMobile />
             </section>
             <section className="flex flex-col float-right w-screen h-screen">
             <section className="w-full p-4 border-b flex justify-start">
@@ -26,9 +27,7 @@ export default function MessageScreen() {
             </section>
             <section className="h-[74.7%] border-b">
                 <div className="p-4">
-                    {
-
-                    }
+                    
                 </div>
             </section>
             
@@ -55,7 +54,7 @@ export default function MessageScreen() {
 </label>
 <div className="flex items-center">
 <button className="bg-primary h-[25px] p-6 flex justify-center items-center rounded-lg gap-2">
-    <p className="text-white font-bold">Send</p>
+    <p className="text-white hidden lg:block font-bold">Send</p>
     <i className="material-icons text-white">send</i>
 </button>
 </div>

@@ -132,7 +132,7 @@ export default function DashboardPC() {
 
         <nav aria-label="Account Nav" className="mt-2 flex flex-col px-4">
           <a
-            href="#"
+            href="/account"
             className="flex cursor-pointer gap-2 items-center justify-start rounded-lg px-4 py-2 text-gray-500 hover:bg-primary hover:text-white"
           >
             <svg
@@ -206,7 +206,7 @@ export default function DashboardPC() {
       <img
         alt="PfP"
         src={user.pfp}
-        className="h-10 w-10 rounded-full object-cover"
+        className="h-10 w-10 rounded-full object-cover bg-primary"
       />
 
       <div>

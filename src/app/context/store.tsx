@@ -10,12 +10,16 @@ export default function useAppContext() {
     return appContext;
 }
 
+
 export const AppContextProvider = ({ children }: { children: any }) => {
     const [user, setUser] = useState({});
   const [allUsers, setAllUsers] = useState([]);
   const [currentPage, setCurrentPage] = useState("Home");
   const [currentUser, setCurrentUser] = useState({});
-  const [filteredUsers, setFilteredUsers] = useState([])
+  const [filteredUsers, setFilteredUsers] = useState([]);
+  const [currentChat, setCurrentChat] = useState({});
+  const [allChats, setAllChats] = useState([]);
+  const [messages, setMessages] = useState([]);
   const router = useRouter();
 
     useEffect(() => {
@@ -35,16 +39,23 @@ export const AppContextProvider = ({ children }: { children: any }) => {
           const getUsers = axios.get(`${process.env.NEXT_PUBLIC_API}users`, {
             headers: { Authorization: `Bearer ${token}` },
           });
+
+
+         const getAllChats = axios.get(`${process.env.NEXT_PUBLIC_LOCAL_API}chats`, {
+            headers: { Authorization: `Bearer ${token}` },
+          });
           
     
           Promise.all([
             getUser,
             getUsers, 
+            getAllChats
           ])
-          .then(([userResponse, allUsersResponse]) => {
+          .then(([userResponse, allUsersResponse, chatsResponse]) => {
             setUser(userResponse.data);
             setAllUsers(allUsersResponse.data);
-            setFilteredUsers([...allUsers])
+            setFilteredUsers([...allUsers]);
+            setAllChats(chatsResponse.data);
            // setAuthorized(true);
           })
           .catch((error) => {
@@ -68,7 +79,13 @@ export const AppContextProvider = ({ children }: { children: any }) => {
         currentUser,
         setCurrentUser,
         filteredUsers,
-        setFilteredUsers
+        setFilteredUsers,
+        currentChat,
+        setCurrentChat,
+        allChats,
+        setAllChats,
+        messages,
+        setMessages,
       }
 
       return (
