@@ -31,11 +31,11 @@ export default function ChatScreen({ chatId }: chatProps) {
    function getChat() {
     setMessages([])
      try {
-        const getChat = axios.post(`${process.env.NEXT_PUBLIC_LOCAL_API}getChat`, {
+        const getChat = axios.post(`${process.env.NEXT_PUBLIC_API}getChat`, {
             chatId: path.slice(6).toString()
           })
 
-          const getMessages = axios.post(`${process.env.NEXT_PUBLIC_LOCAL_API}getMessages`, {
+          const getMessages = axios.post(`${process.env.NEXT_PUBLIC_API}getMessages`, {
             chatId: path.slice(6).toString()
           })
 

@@ -50,7 +50,7 @@ setAllChats } = useAppContext();
             headers: { Authorization: `Bearer ${token}` },
           });
 
-          const getAllChats = axios.get(`${process.env.NEXT_PUBLIC_LOCAL_API}chats`, {
+          const getAllChats = axios.get(`${process.env.NEXT_PUBLIC_API}chats`, {
             headers: { Authorization: `Bearer ${token}` },
           });
           

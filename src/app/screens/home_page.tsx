@@ -23,7 +23,7 @@ function HomePage() {
   const [currentUser, setCurrentUser] = useState<userProp>();
   const [t, sT] = useState("testing")
   const router = useRouter();
-  
+
   async function addToMessagesList() {
     try {
       let token = null;
@@ -32,7 +32,7 @@ function HomePage() {
       token = localStorage.getItem('Trackit_admin[3343]-token');
     };
 
-    const req = await axios.post(`${process.env.NEXT_PUBLIC_LOCAL_API}adminMessagesList`, {
+    const req = await axios.post(`${process.env.NEXT_PUBLIC_API}adminMessagesList`, {
         userEmail: currentUser?.email,
         adminId: user._id
       }).then((response) => {
