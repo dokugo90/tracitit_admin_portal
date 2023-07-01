@@ -128,7 +128,7 @@ export default function ChatScreen({ chatId }: chatProps) {
                 <div className="p-4">
                     {
                         messages.map((userMessage: any, index: number) => (
-                            <div className="flex items-start mb-4">
+                            <div key={index} className="flex items-start mb-4">
       <img src={userMessage.sender.pfp} alt="Sender's Photo" className="w-10 h-10 rounded-full mr-4" />
       <div>
         <div className="flex items-center mb-1">

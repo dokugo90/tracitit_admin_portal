@@ -232,6 +232,7 @@ export default function DashboardMobile() {
                               onClick={() => setCurrentChat(chat)}
                               href="/chat/[chatId]"
                               as={`/chat/${chat?._id}`}
+                              key={index}
                               className={`t group relative flex justify-center  rounded px-2 py-1.5`}
                             >
                               <img src={userMList.pfp} className='w-[50px] h-[50px]' />
