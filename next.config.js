@@ -3,7 +3,6 @@
 //const nodeExternals = require('webpack-node-externals');
 
 const nextConfig = {
-  reactStrictMode: true,
   experimental: {
     appDir: true,
    
